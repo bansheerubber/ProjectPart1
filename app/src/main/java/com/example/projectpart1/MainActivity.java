@@ -23,7 +23,12 @@ import com.example.projectpart1.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
@@ -69,5 +74,9 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ContentActivity.class);
             startActivity(intent);
         });
+
+        String time = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
+        TextView text = findViewById(R.id.mainTime);
+        text.setText("Time: " + time);
     }
 }

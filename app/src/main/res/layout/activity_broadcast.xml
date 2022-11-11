@@ -10,9 +10,9 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginHorizontal="30dp"
-        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:editable="true"
             android:ems="10"
-            android:gravity="start|top"
+            android:gravity="top"
             android:inputType="textMultiLine"
             android:lines="5" />
 

@@ -106,7 +106,7 @@
                         android:id="@+id/textView16"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1214558527"
+                        android:text="anag9@asu.edu"
                         android:textColor="#000000"
                         android:textSize="16sp" />
                 </TableRow>

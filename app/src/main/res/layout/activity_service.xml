@@ -13,21 +13,43 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/currTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Service Time"
-            android:textColor="#000000"
-            android:textSize="34sp" />
+            android:text="Current Time"
+            android:textColor="@color/black"
+            android:textSize="34sp"/>
 
-        <TextView
-            android:id="@+id/textView2"
+        <EditText
+            android:id="@+id/formatTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="12:30PM"
-            android:textColor="#000000"
-            android:textSize="48sp" />
+            android:textColor="@color/teal_200"
+            android:textSize="34sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="15dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="50dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#4CAF50"
+            android:text="Start Service"
+            android:onClick="onStartService"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#F44336"
+            android:text="Stop Service"
+            android:onClick="onStopService"/>
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

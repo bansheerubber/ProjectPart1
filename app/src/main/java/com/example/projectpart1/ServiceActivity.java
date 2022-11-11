@@ -26,23 +26,25 @@ public class ServiceActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onStart(){
+    public void onStart() {
         super.onStart();
-//        startService(new Intent(this, CurrentTimeService.class));
         // bind to CurrentTimeService
         bindService(new Intent(this, CurrentTimeService.class),
                 connection, Context.BIND_AUTO_CREATE);
     }
 
     @Override
-    public void onStop(){
+    public void onStop() {
         super.onStop();
-        unbindService(connection);
-        mBound = false;
+
+        if (mBound) {
+            unbindService(connection);
+            mBound = false;
+        }
     }
 
-    public void onStartService(View v){
-        if(!mBound){
+    public void onStartService(View v) {
+        if (!mBound) {
             startService(new Intent(this, CurrentTimeService.class));
             bindService(new Intent(this, CurrentTimeService.class),
                     connection, Context.BIND_AUTO_CREATE);
@@ -51,8 +53,8 @@ public class ServiceActivity extends AppCompatActivity {
         formatTime.setText(time);
     }
 
-    public void onStopService(View v){
-        if (mBound){
+    public void onStopService(View v) {
+        if (mBound) {
             unbindService(connection);
             formatTime.setText("");
         }
@@ -64,7 +66,6 @@ public class ServiceActivity extends AppCompatActivity {
     private ServiceConnection connection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName className, IBinder service) {
-
             // bound to CurrentTimeService, case IBinder to get CurrentTimeService instance
             CurrentTimeService.LocalBinder binder = (CurrentTimeService.LocalBinder) service;
             mService = binder.getService();
